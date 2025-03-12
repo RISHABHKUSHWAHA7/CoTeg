@@ -56,20 +56,19 @@ const Header = ({ workspaceId }) => {
   };
 
   return (
-    <header className="flex items-center justify-between px-8 py-3 bg-[#0a0f1e] bg-opacity-80 backdrop-blur-lg border-b border-gray-700 shadow-xl z-20">
+    <header className="flex items-center justify-between px-8 py-3 bg-black bg-opacity-80 backdrop-blur-lg border-b  shadow-xl z-20">
       {/* Title with Neon Glow Effect */}
-      <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 drop-shadow-lg animate-pulse">
-      CodeMate 
+      <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 drop-shadow-lg animate-pulse">
+        CodeMate
       </h1>
 
       <InviteNotification />
 
       <div className="flex items-center gap-6">
-
         {pathname.startsWith("/workspace/") && (
           <Button
             onClick={goToDashboard}
-            className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-blue-500/50"
+            className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-500 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-red-500/50"
           >
             <LayoutDashboard className="w-5 h-5" />
             Dashboard
@@ -78,13 +77,17 @@ const Header = ({ workspaceId }) => {
 
         {/* Welcome Message */}
         <p className="text-white text-sm font-medium opacity-90 animate-fadeIn">
-          Welcome back, <span className="font-bold text-blue-400">{userName}</span> 👋
+          Welcome back,{" "}
+          <span className="font-bold text-red-400">{userName}</span> 👋
         </p>
 
         {/* Profile Avatar */}
         <Link href="/profile">
-          <Avatar className="w-10 h-10 cursor-pointer border-2 border-gray-500 transition-all duration-300 hover:border-blue-400 hover:scale-105">
-            <AvatarImage src={auth.currentUser?.photoURL || "/robotic.png"} alt="Profile" />
+          <Avatar className="w-10 h-10 cursor-pointer border-2 border-gray-500 transition-all duration-300 hover:border-red-400 hover:scale-105">
+            <AvatarImage
+              src={auth.currentUser?.photoURL || "/robotic.png"}
+              alt="Profile"
+            />
             <AvatarFallback>U</AvatarFallback>
           </Avatar>
         </Link>

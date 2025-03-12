@@ -12,15 +12,10 @@ const StarBackground = (props) => {
   // Generate sphere positions and ensure no NaN values
   const [sphere] = useState(() => {
     // Generate random positions within a sphere
-    const positions = random.inSphere(new Float32Array(5000), { radius: 1.2 });
+    let positions = random.inSphere(new Float32Array(5000 * 3), { radius: 1.2 });
 
-    // Ensure no NaN values exist in the array, replace with 0 if NaN is found
-    for (let i = 0; i < positions.length; i++) {
-      if (isNaN(positions[i])) {
-        console.warn("NaN detected in sphere positions, replacing with 0");
-        positions[i] = 0; // Replace NaN with a default value (0)
-      }
-    }
+    // Ensure all values are valid numbers
+    positions = positions.map((value) => (isNaN(value) ? 0 : value));
 
     return positions;
   });

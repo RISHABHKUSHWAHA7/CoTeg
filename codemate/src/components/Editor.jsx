@@ -201,7 +201,7 @@ export default function CodeEditor({ file }) {
                   onClick={fixSyntaxErrors}
                   disabled={isFixing}
                 >
-                  <Wrench size={14} /> {isFixing ? "Fixing..." : "Fix"}
+                  <Wrench size={14} /> {isFixing ? "Generating..." : "Fix/Generating"}
                 </button>
                 <button
                   className="flex items-center gap-1.5 bg-purple-600 bg-opacity-20 ring-1 ring-purple-600 text-white px-3 py-1.5 rounded-full shadow-md hover:bg-purple-600 transition text-xs"
